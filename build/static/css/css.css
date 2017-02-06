@@ -1,0 +1,25 @@
+* {
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-size: 10px;
+    position: relative;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    background-color: #fff;
+}
+
+#main {
+    width: 100%;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+}

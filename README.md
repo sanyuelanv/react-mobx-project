@@ -294,3 +294,8 @@ class Ticker {
 const ticker = new Ticker()
 setInterval(ticker.increment, 1000)
 ```
+
+## 后记
+启动例子项目：
+1. 前端项目：npm install 或者 yarn install 打开本地的8080端口
+2. 后端部分：进入 back文件夹，执行npm start 打开本地的3000端口
