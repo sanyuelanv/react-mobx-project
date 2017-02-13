@@ -13,6 +13,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'build/static/js'),
+    chunkFilename: '[name].[chunkhash:5].chunk.js',
     filename: 'app.js'
   },
   module: {
