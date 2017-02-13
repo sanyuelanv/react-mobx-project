@@ -15,6 +15,7 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'build'),
+    chunkFilename: '[name].[chunkhash:5].chunk.js',
     filename: 'bundle.js'
   },
   devServer: {

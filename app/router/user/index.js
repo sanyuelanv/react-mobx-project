@@ -34,12 +34,9 @@ import { observer,inject } from 'mobx-react'
 		}
 	}
 	render(){
-    	return(
-			<div className ={commonStyle.container}>
-				<div className={commonStyle.content} onClick={()=>{this._addHandle()}}>
+    return(
+			<div className={commonStyle.content} onClick={()=>{this._addHandle()}}>
 				{this._renderData()}
-				</div>
-				<Bar route = {'user'}></Bar>
 			</div>
 		)
 	}

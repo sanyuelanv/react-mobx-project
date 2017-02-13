@@ -19,12 +19,9 @@ import { observer,inject } from 'mobx-react'
 	}
 	render(){
     	return(
-			<div className ={commonStyle.container}>
 				<div className={commonStyle.content} onClick={()=>{this._addHandle(1)}}>
 				点击次数：{this.props.clickTimes.times}
 				</div>
-				<Bar route = {'home'}></Bar>
-			</div>
 		)
 	}
 }
