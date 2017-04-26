@@ -1,0 +1,19 @@
+{
+  "presets": [
+    ["es2015", {
+      "modules": false
+    }],
+    "stage-0",
+    "react"
+  ],
+  "plugins": [
+    "transform-runtime",
+    "transform-decorators-legacy",
+    "transform-class-properties",["transform-imports", {
+      "react-router-dom": {
+        "transform": "react-router-dom/${member}",
+        "preventFullImport": true
+      }
+    }]
+  ]
+}
