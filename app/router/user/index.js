@@ -2,8 +2,6 @@
 import React from 'react'
 
 import commonStyle from '../../common/css/css.css'
-import Bar from '../../common/component/bar'
-
 import style from './css.css'
 import { observer,inject } from 'mobx-react'
 

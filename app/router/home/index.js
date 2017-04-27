@@ -4,7 +4,6 @@ import React from 'react'
 import style from './css.css'
 // 公用属性
 import commonStyle from '../../common/css/css.css'
-import Bar from '../../common/component/bar'
 
 import { observer,inject } from 'mobx-react'
 

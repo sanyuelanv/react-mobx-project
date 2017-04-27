@@ -1,37 +1,30 @@
 'use strict'
 import 'whatwg-fetch'
 import React from 'react'
-import Home from './home'
-import Index from './index/'
-// import User from './user'
 import { Provider } from 'mobx-react';
-import clickTimes from '../stores/clickTimesStore.js'
-import fetchData from '../stores/fetchStore.js'
-import {
-  IndexRoute,
-  Router,
-  Route,
-  Link,
-  browserHistory
-} from 'react-router'
-const stores = {clickTimes,fetchData}
+import {Route,BrowserRouter,Switch} from 'react-router-dom'
 
-const userRouter = (location,callback)=>{
-  require.ensure([],require=>{
-    callback(null,require('./user/index').default)
-  },"user")
-}
+import Home from './home'
+import Nav from '../common/component/nav'
+import asyncComponent from '../config/asyncComponent'
+import commonStyle from '../common/css/css.css'
+import stores from '../stores'
+
+const userRouter = asyncComponent(() => System.import('./user/index').then(module => module.default))
 
 class Component extends React.Component {
   render() {
     return (
       <Provider {...stores}>
-  			<Router history={browserHistory}>
-  				<Route path="/" component={Index}>
-            <IndexRoute component={Home} />
-            <Route path="user" getComponent={userRouter}></Route>
-          </Route>
-  			</Router>
+  			<BrowserRouter>
+          <div className ={commonStyle.container}>
+            <Switch>
+    				   <Route exact path="/" component={Home}></Route>
+               <Route exact path="/user" component={userRouter}></Route>
+            </Switch>
+             <Nav />
+          </div>
+  			</BrowserRouter>
       </Provider>
     )
   }
