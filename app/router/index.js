@@ -5,11 +5,10 @@ import { Provider } from 'mobx-react';
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 
 import Home from './home'
-import Nav from '../common/component/nav'
-import asyncComponent from '../config/asyncComponent'
+import NotFound from './404'
+import asyncComponent from '../common/component/async'
 import commonStyle from '../common/css/css.css'
 import stores from '../stores'
-
 const userRouter = asyncComponent(() => System.import('./user/index').then(module => module.default))
 
 class Component extends React.Component {
@@ -21,8 +20,8 @@ class Component extends React.Component {
             <Switch>
     				   <Route exact path="/" component={Home}></Route>
                <Route exact path="/user" component={userRouter}></Route>
+               <Route component={NotFound} />
             </Switch>
-             <Nav />
           </div>
   			</BrowserRouter>
       </Provider>

@@ -3,6 +3,7 @@ import React from 'react'
 
 import commonStyle from '../../common/css/css.css'
 import style from './css.css'
+import Nav from '../../common/component/nav'
 import { observer,inject } from 'mobx-react'
 
 @inject('fetchData') @observer class Component extends React.Component{
@@ -33,8 +34,9 @@ import { observer,inject } from 'mobx-react'
 	}
 	render(){
     return(
-			<div className={commonStyle.content} onClick={()=>{this._addHandle()}}>
-				{this._renderData()}
+			<div className ={commonStyle.container}>
+				<div className={commonStyle.content} onClick={()=>{this._addHandle()}}>{this._renderData()}</div>
+				<Nav />
 			</div>
 		)
 	}
