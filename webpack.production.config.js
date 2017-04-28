@@ -5,8 +5,7 @@ var node_module_dir = path.resolve(__dirname, 'node_module')
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, 'app/main.js'), ],
-    common: ['react','react-dom','mobx','mobx-react']
+    app: [path.resolve(__dirname, 'app/main.js'), ]
   },
   output: {
     path: path.resolve(__dirname, 'build/static/js'),
@@ -66,13 +65,15 @@ module.exports = {
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'common',
-      minChunks: 2,
-      filename:'common.[chunkhash:5].js'
+      // 把你用到的，存在在node_modules里面的都打包出来
+      minChunks: function(module) {
+        return module.context && module.context.indexOf('node_modules') !== -1;
+      },
+      filename: 'common.[chunkhash:5].js'
     }),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'manifest',
-      chunks: ['common'],
-      filename:'manifest.[chunkhash:5].js'
+      filename: 'manifest.[chunkhash:5].js'
     }),
     new ExtractTextPlugin({
       filename:(getPath) => {

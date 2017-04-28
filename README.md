@@ -1,5 +1,5 @@
 # MobX
-> ** 2017-4-27 更新 ** 更新详情见后记2
+> **2017-4-27 更新** 更新详情见后记2
 
 ## 1. 介绍
 
@@ -305,8 +305,9 @@ setInterval(ticker.increment, 1000)
 ## 后记2  
 ### 打包  
 升级到```webpack v2```  
-在babel方面，抛弃了```babel-polyfill``` 只使用```babel-runtime```。后者与前者相比，只会把需要用到的```polyfill```打包进去，这样可以不用一次过引入整一个大的```polyfill```。但貌似两者的```polyfill```并不是等价的。如果你在用到一些ES2005的技术时候出现莫名其妙的bug。还是乖乖用回去```babel-polyfill```。  
-新引入一个babel插件```babel-plugin-transform-imports```。在如同```import {Route,BrowserRouter,Switch} from 'react-router-dom'```的时候，其实我们是把整个包都用到了，因此使用该插件能在打包的时候把只用到的部分打包出来。  
+1. 在babel方面，抛弃了```babel-polyfill``` 只使用```babel-runtime```。后者与前者相比，只会把需要用到的```polyfill```打包进去，这样可以不用一次过引入整一个大的```polyfill```。但貌似两者的```polyfill```并不是等价的。如果你在用到一些ES2005的技术时候出现莫名其妙的bug。还是乖乖用回去```babel-polyfill```。  
+2. 新引入一个babel插件```babel-plugin-transform-imports```。在如同```import {Route,BrowserRouter,Switch} from 'react-router-dom'```的时候，其实我们是把整个包都用到了，因此使用该插件能在打包的时候把只用到的部分打包出来。  (**抛弃**)
+3. 采取Code Splitting - Libraries方式把库文件和manifest分离出来。
 
 ### react-router v4  
 在```react-router v4``` 里面，分成了 ```native``` 和 ```web```版本。```web```引入```react-router-dom```即可  
