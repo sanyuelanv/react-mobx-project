@@ -5,11 +5,11 @@ import { Provider } from 'mobx-react';
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 
 import Home from './home'
-import NotFound from './404'
+import Error from '../common/component/error'
 import asyncComponent from '../common/component/async'
 import commonStyle from '../common/css/css.css'
 import stores from '../stores'
-const userRouter = asyncComponent(() => System.import('./user/index').then(module => module.default))
+const userRouter = asyncComponent(() => import('./user/index').then(module => module.default).catch((err)=>{return 101}))
 
 class Component extends React.Component {
   render() {
@@ -20,7 +20,7 @@ class Component extends React.Component {
             <Switch>
     				   <Route exact path="/" component={Home}></Route>
                <Route exact path="/user" component={userRouter}></Route>
-               <Route component={NotFound} />
+               <Route component={Error} />
             </Switch>
           </div>
   			</BrowserRouter>

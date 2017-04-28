@@ -1,6 +1,7 @@
 'use strict'
 import React from 'react'
 import Loading from './loading'
+import Error from '../error'
 
 function asyncComponent(getComponent) {
   return class AsyncComponent extends React.Component {
@@ -17,8 +18,14 @@ function asyncComponent(getComponent) {
     }
     render() {
       const {Component} = this.state
-      if (Component) {return <Component { ...this.props} />}
-      console.log(Component);
+      if (Component) {
+        if(Component == 101){
+          return <Error { ...this.props} text={"加载页面失败"} error={101} />
+        }
+        else{
+          return <Component { ...this.props} />
+        }
+      }
       return (<Loading />)
     }
   }
