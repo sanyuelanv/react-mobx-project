@@ -34,9 +34,8 @@
     "gulp-clean-css": "^3.0.4",
     "gulp-concat": "^2.6.1",
     "gulp-rename": "^1.2.2",
-    "redux-logger": "^2.7.0",
     "style-loader": "^0.13.2",
-    "webpack": "^2.2.1",
+    "webpack": "^3.0.0",
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {

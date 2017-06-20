@@ -38,6 +38,7 @@ module.exports = {
     new webpack.DefinePlugin({
       __DEV__: JSON.stringify(JSON.parse(process.env.BUILD_DEV || 'false'))
     }),
+    new webpack.optimize.ModuleConcatenationPlugin(),
     new webpack.LoaderOptionsPlugin({minimize: true}),
     new webpack.optimize.UglifyJsPlugin({
       // 最紧凑的输出

@@ -10,11 +10,6 @@
     "syntax-dynamic-import",
     "transform-runtime",
     "transform-decorators-legacy",
-    "transform-class-properties",["transform-imports", {
-      "react-router-dom": {
-        "transform": "react-router-dom/${member}",
-        "preventFullImport": true
-      }
-    }]
+    "transform-class-properties",
   ]
 }
