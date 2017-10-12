@@ -23,13 +23,18 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ExtractTextPlugin.extract({
-          fallback: "style-loader",
-          use: 'css-loader?minimize&modules&localIdentName=_[local]_[hash:base64:5]',
-        }),
-        include: [path.resolve(__dirname, 'app')],
-        exclude: [node_module_dir],
+        use: ExtractTextPlugin.extract( {
+          use: ['css-loader?minimize&modules&localIdentName=_[local]_[hash:base64:5]',"postcss-loader"],
+        } ),
+        include: [ path.resolve( __dirname, 'app' ) ],
+        exclude: [ node_module_dir ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: 'file-loader?name=[name].[ext]&outputPath=../image/',
+        include: [ path.resolve( __dirname, 'app' ) ],
+        exclude: [ node_module_dir ],
+      }
 
     ]
   },
@@ -45,7 +50,6 @@ module.exports = {
       beautify: false,
       // 删除所有的注释
       comments: false,
-
       compress: {
         // 在UglifyJs删除没有用到的代码时不输出警告
         warnings: false,

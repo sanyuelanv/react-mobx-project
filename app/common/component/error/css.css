@@ -22,12 +22,7 @@
   background-image: linear-gradient(125deg, #fff, #f3f3f3 41%, #ededed 0, #fff);
   background-size: 300% 300%;
 
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
   flex-direction: column;
   font-size: 14px;
 }
@@ -37,34 +32,14 @@
   color: #555;
   margin-bottom: 10px;
   flex: 1.0;
-  -webkit-flex: 1.0;
-  -webkit-box-flex: 1.0;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  /*定义子元素主轴对齐*/
-  -webkit-box-pack: center;
-  -webkit-justify-content: center;
   justify-content: center;
-  /*定义子元素交叉轴对齐*/
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-align-items: center;
 }
 .ErrorButton{
   flex: 1.0;
-  -webkit-flex: 1.0;
-  -webkit-box-flex: 1.0;
-  display: -webkit-box;
-  display: -webkit-flex;
   display: flex;
-  /*定义子元素交叉轴对齐*/
-  -webkit-box-align: center;
   align-items: center;
-  -webkit-align-items: center;
-  -webkit-box-direction: normal;
-  -webkit-box-orient: vertical;
-  -webkit-flex-direction: column;
   flex-direction: column;
 }
 .backButton{

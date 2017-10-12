@@ -5,6 +5,8 @@ import { Provider } from 'mobx-react';
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 
 import Home from './home'
+import Nav from '../common/component/nav'
+import Load from '../common/component/load'
 import Error from '../common/component/error'
 import asyncComponent from '../common/component/async'
 import commonStyle from '../common/css/css.css'
@@ -22,6 +24,8 @@ class Component extends React.Component {
                <Route exact path="/user" component={userRouter}></Route>
                <Route component={Error} />
             </Switch>
+            <Nav />
+            <Load />
           </div>
   			</BrowserRouter>
       </Provider>

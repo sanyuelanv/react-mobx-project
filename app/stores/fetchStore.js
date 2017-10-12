@@ -10,14 +10,14 @@ class fetchDataStore {
   @observable state;
   @action fetchOperate = (Increment) => {
     this.state = 1
-    let fetchURL = 'http://localhost:3000/'
+    let fetchURL = 'https://cnodejs.org/api/v1/topics'
     fetch(fetchURL, {method: 'get'})
       .then(res => res.json())
       .then(
         action("fetchOperate_success",(res) => {
-          let {test} = res
+          let {data} = res
           this.state = 2
-          this.data = test
+          this.data = `加载${data.length}条数据`
         })
       )
       .catch(

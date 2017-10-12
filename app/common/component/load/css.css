@@ -1,0 +1,96 @@
+.load {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  z-index: 9;
+  background: rgb(238, 238, 238);
+  display: none;
+  transition: all 0.2s;
+  -webkit-transition: all .2s;
+  -ms-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -o-transition: all 0.2s;
+}
+.loadShow{
+  composes: load;
+  display: block;
+  opacity: 0.5;
+}
+.loadHideOpacity{
+  composes: load;
+  opacity: 0;
+}
+.loadHide{
+  composes: load;
+  display: none;
+}
+.loadTop {
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+@keyframes loadAction {
+  0% {
+    transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -webkit-transform: translateX(200%);
+  }
+}
+@-webkit-keyframes loadAction {
+  0% {
+    transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -webkit-transform: translateX(200%);
+  }
+}
+@-moz-keyframes loadAction {
+  0% {
+    transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(200%);
+    -moz-transform: translateX(200%);
+    -webkit-transform: translateX(200%);
+  }
+}
+
+.loadTopBlue {
+  width: 60%;
+  height: 100%;
+  /*position: relative;*/
+  background-color: #4285f4;
+  transform: translateX(-100%);
+  -ms-transform: translateX(-100%);
+  -moz-transform: translateX(-100%);
+  -webkit-transform: translateX(-100%);
+  animation: loadAction ease-in-out 1s infinite;
+  -ms-animation: loadAction ease-in-out 1s infinite;
+  -webkit-animation: loadAction ease-in-out 1s infinite;
+  -moz-animation: loadAction ease-in-out 1s
+}
+
+@media screen and (max-width: 767px) {
+  .loadTopBlue {
+    animation-duration: 0.7s;
+    -ms-animation-duration: 0.7s;
+    -webkit-animation-duration: 0.7s;
+    -moz-animation-duration: 0.7s;
+    -o-animation-duration: 0.7s;
+  }
+}

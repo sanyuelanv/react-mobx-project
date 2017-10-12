@@ -14,6 +14,7 @@ module.exports = {
     contentBase: path.join(__dirname, "build"),
     compress: true,
     port: 8080,
+    host: "localhost",
     historyApiFallback: true,
   },
   plugins: [
@@ -33,10 +34,16 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", 'css-loader?modules&localIdentName=_[local]_[hash:base64:5]'],
-        include: [path.resolve(__dirname, 'app')],
-        exclude: [node_module_dir],
+        use: [ "style-loader", 'css-loader?modules&localIdentName=_[local]_[hash:base64:5]', "postcss-loader" ],
+        include: [ path.resolve( __dirname, 'app' ) ],
+        exclude: [ node_module_dir ],
       },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [ 'file-loader' ],
+        include: [ path.resolve( __dirname, 'app' ) ],
+        exclude: [ node_module_dir ],
+      }
     ]
   },
 }
