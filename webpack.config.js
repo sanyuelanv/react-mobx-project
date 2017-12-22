@@ -3,7 +3,11 @@ var webpack = require('webpack')
 var node_module_dir = path.resolve(__dirname, 'node_module')
 
 module.exports = {
-  entry: path.resolve(__dirname, 'app/main.js'),
+  entry:[
+    "whatwg-fetch",
+    path.resolve(__dirname, 'app/console.js'),
+    path.resolve(__dirname, 'app/main.js')
+  ],
   output: {
     path: path.resolve(__dirname, 'build'),
     chunkFilename: '[name].[chunkhash:5].chunk.js',
@@ -11,6 +15,12 @@ module.exports = {
     filename: 'bundle.js'
   },
   devServer: {
+    proxy: {
+      "/api": {
+        target: 'https://cnodejs.org',
+        secure: false
+      }
+    },
     contentBase: path.join(__dirname, "build"),
     compress: true,
     port: 8080,

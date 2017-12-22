@@ -22,7 +22,7 @@ class Component extends React.Component {
             <Switch>
     				   <Route exact path="/" component={Home}></Route>
                <Route exact path="/user" component={userRouter}></Route>
-               <Route component={Error} />
+               <Route component={Error} ></Route>
             </Switch>
             <Nav />
             <Load />

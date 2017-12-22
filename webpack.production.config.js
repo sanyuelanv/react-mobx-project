@@ -5,7 +5,7 @@ var node_module_dir = path.resolve(__dirname, 'node_module')
 
 module.exports = {
   entry: {
-    app: [path.resolve(__dirname, 'app/main.js'), ]
+    app: ["whatwg-fetch",path.resolve(__dirname, 'app/main.js'), ]
   },
   output: {
     path: path.resolve(__dirname, 'build/static/js'),

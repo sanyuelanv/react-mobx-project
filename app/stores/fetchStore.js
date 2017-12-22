@@ -10,7 +10,7 @@ class fetchDataStore {
   @observable state;
   @action fetchOperate = (Increment) => {
     this.state = 1
-    let fetchURL = 'https://cnodejs.org/api/v1/topics'
+    let fetchURL = '/api/v1/topics'
     fetch(fetchURL, {method: 'get'})
       .then(res => res.json())
       .then(
