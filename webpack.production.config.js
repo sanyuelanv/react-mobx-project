@@ -62,7 +62,6 @@ module.exports = {
         reduce_vars: true,
       }
     }),
-    new webpack.NamedModulesPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
         NODE_ENV: JSON.stringify("production")
