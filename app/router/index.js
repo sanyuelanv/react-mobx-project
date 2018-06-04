@@ -1,8 +1,8 @@
 'use strict'
 import 'whatwg-fetch'
 import React from 'react'
-import { Provider } from 'mobx-react';
-import {Route,BrowserRouter,Switch} from 'react-router-dom'
+import { Provider } from 'mobx-react'
+import { Route, BrowserRouter, Switch } from 'react-router-dom'
 
 import Home from './home'
 import Nav from '../common/component/nav'
@@ -11,23 +11,23 @@ import Error from '../common/component/error'
 import asyncComponent from '../common/component/async'
 import commonStyle from '../common/css/css.css'
 import stores from '../stores'
-const userRouter = asyncComponent(() => import('./user/index').then(module => module.default).catch((err)=>{return 101}))
+const userRouter = asyncComponent(() => import('./user/index').then(module => module.default).catch((err) => { return { err, state: 101 } }))
 
 class Component extends React.Component {
-  render() {
+  render () {
     return (
       <Provider {...stores}>
-  			<BrowserRouter>
+        <BrowserRouter>
           <div className ={commonStyle.container}>
             <Switch>
-    				   <Route exact path="/" component={Home}></Route>
-               <Route exact path="/user" component={userRouter}></Route>
-               <Route component={Error} ></Route>
+              <Route exact path="/" component={Home}></Route>
+              <Route exact path="/user" component={userRouter}></Route>
+              <Route component={Error} ></Route>
             </Switch>
             <Nav />
             <Load />
           </div>
-  			</BrowserRouter>
+        </BrowserRouter>
       </Provider>
     )
   }

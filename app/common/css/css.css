@@ -29,6 +29,11 @@ body, html {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    background-image: url(../../image/big.jpg);
+    background-position: center;
+    background-size: auto;
+    background-repeat: no-repeat;
+    color: #fff;
 }
 
 .content {

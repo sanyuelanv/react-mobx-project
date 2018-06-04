@@ -1,13 +1,13 @@
 'use strict'
-import { observable,action } from 'mobx'
+import { observable, action } from 'mobx'
 
 //
 class LoadStore {
   @observable state;
-  @action control =(state)=>{
+  @action control =(state) => {
     this.state = state
   }
-  constructor(){
+  constructor () {
     this.state = false
   }
 }
