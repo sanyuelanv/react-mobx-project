@@ -17,7 +17,7 @@ class Error extends React.Component {
     window.location.reload()
   }
   _renderBtn () {
-    const state = this.props.error.state || 404
+    const state = this.props.error || 404
     if (state === 101) {
       return (
         <div className={style.backButton} onClick={this._handleRef}>刷新</div>

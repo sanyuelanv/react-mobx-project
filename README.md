@@ -2,52 +2,69 @@
 
 ## 项目架构：
 ```
-├── common //公用
-│   ├── component   //组件
-│   │   ├── async
-│   │   │   ├── css.css
-│   │   │   ├── index.js
-│   │   │   └── loading.js
-│   │   ├── error
-│   │   │   ├── css.css
-│   │   │   └── index.js
-│   │   └── nav
-│   │       ├── css.css
-│   │       └── index.js
-│   └── css  //样式
-│       └── css.css
-├── image  //素材图片。建议组件的ICON类的跟着组件走，而素材类的放在这里
-│   └── icon.svg
-├── main.js //  主入口
-├── console.js // 开发环境使用移动端的Vconsole
-├── router  // 路由组件
-│   ├── home  //每一个路由也是一个组件
-│   │   ├── css.css
-│   │   └── index.js
-│   ├── index.js //路由出口
-│   └── user //每一个路由也是一个组件
-│       ├── css.css
-│       └── index.js
-└── stores // 数据流处理
-    ├── clickTimesStore.js  //每一块数据为一个类
-    ├── fetchStore.js
-    ├── loadStore.js
-    └── index.js  //数据流出口
+├── app  // 前端开发项目
+│   ├── common
+│   │   ├── component
+│   │   │   ├── async
+│   │   │   │   ├── css.css
+│   │   │   │   ├── index.js
+│   │   │   │   └── loading.js
+│   │   │   ├── error
+│   │   │   │   ├── css.css
+│   │   │   │   └── index.js
+│   │   │   ├── load
+│   │   │   │   ├── css.css
+│   │   │   │   └── index.js
+│   │   │   └── nav
+│   │   │       ├── css.css
+│   │   │       └── index.js
+│   │   └── css
+│   │       └── css.css
+│   ├── console.js
+│   ├── image
+│   │   ├── big.jpg
+│   │   └── icon.svg
+│   ├── index.html
+│   ├── main.js
+│   ├── router
+│   │   ├── home
+│   │   │   ├── css.css
+│   │   │   └── index.js
+│   │   ├── index.js
+│   │   └── user
+│   │       ├── css.css
+│   │       └── index.js
+│   └── stores
+│       ├── clickTimesStore.js
+│       ├── fetchStore.js
+│       ├── index.js
+│       └── loadStore.js
+├── manifestInLine.js
+├── package-lock.json
+├── package.json
+├── postcss.config.js
+├── server.js  // 服务启动
+├── views
+│   └── index.ejs
+├── webpack.config.js
+└── webpack.production.config.js
 ```
-## 2018-6-4 更新
+## 2018-6-17 更新
 1. 升级webpack 4
 2. 优化开发环境：  
     1. 自动识别本地 `IP` ,开发模式下会自动打开页面   
-    2. 把模版文件 ```index.html`` 跟随开发文件夹  
+    2. 模版文件 `index.html` 跟随开发文件夹  
     3. 自动删除旧的打包文件 
-3. 使用   代替 `babel-runtime`
-4. 使用 ```url-loader``` 处理图片，小于25K的打包进去 JS 文件
-5. 强化开发规则，强烈建议使用 ```vscode``` 来开发，便于使用 ```eslint``` 的相关功能，并且打开一下功能
+3. 使用 `babel-polyfill` 代替 `babel-runtime`
+4. 使用 ```url-loader``` 处理图片，小于25K的打包进去 `JS` 文件
+5. **优化开发规范**，验证 `propTypes` ；**强化开发规则**，强烈建议使用 ```vscode``` 来开发，便于使用 ```eslint``` 的相关功能，并且打开以下功能  
     ```JSON
         "eslint.autoFixOnSave": true,
     ```
-6. 验证 `propTypes` ， 优化开发规范
-
+6. 打包写入 ```koa``` 搭建的服务器内。其中静态文件写入 `static` , 而 `html` 写入 `view/index.ejs`
+7. `npm run server` 即可启动服务器 , 打开 `http://localhost:3000/` 可看到效果
+8. 前端开发启动：`npm install` 或者 ` yarn install` 打开 `http://localhost:8080/`
+9. 如有问题，可以进入QQ群进行交流：798527244
 
 ## 2017-12-12 更新
 1. 升级一下所有依赖
@@ -58,8 +75,8 @@
 
 
 ## 说明
-启动例子项目：npm install 或者 yarn install 打开本地的8080端口
-1. 更新一系列依赖版本，react升级到16版。
+启动例子项目：`npm install` 或者 ` yarn install` 打开本地的8080端口
+1. 更新一系列依赖版本，`react` 升级到16版。
 2. 把导航栏组件移到可常驻的路由外层。
 3. 增加load view 以及 对应的store
 4. 移除模拟后台，使用cnode 的API进行模拟数据加载
