@@ -61,7 +61,7 @@
     ```JSON
         "eslint.autoFixOnSave": true,
     ```
-6. 打包写入 ```koa``` 搭建的服务器内。其中静态文件写入 `static` , 而 `html` 写入 `view/index.ejs`
+6. 打包写入 ```koa``` 搭建的服务器内。其中静态文件写入 `static` , 而 `html` 写入 `view/index.ejs`
 7. `npm run server` 即可启动服务器 , 打开 `http://localhost:3000/` 可看到效果
 8. 前端开发启动：`npm install` 或者 ` yarn install` 打开 `http://localhost:8080/`
 9. 如有问题，可以进入QQ群进行交流：798527244
